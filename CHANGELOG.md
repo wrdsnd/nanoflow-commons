@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+- We added support for the `mx.login2` client API method in the SignIn action. This method allows to authenticate using tokens and stay signed in until the token expires.
+
 ## [2.6.1] Nanoflow Commons - 2022-9-23
 
 ### Fixed
