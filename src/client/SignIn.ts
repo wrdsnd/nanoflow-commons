@@ -16,7 +16,7 @@ import { Big } from "big.js";
  * @param {string} password - This field is required.
  * @returns {Promise.<Big>}
  */
-export async function SignIn(username?: string, password?: string): Promise<Big> {
+export async function SignIn(username?: string, password?: string, useAuthToken?: boolean): Promise<Big> {
     // BEGIN USER CODE
     if (!username || !password) {
         return Promise.resolve(new Big(401));
@@ -26,7 +26,7 @@ export async function SignIn(username?: string, password?: string): Promise<Big>
         const onSuccess = (): void => resolve(new Big(200));
         const onError = (error: { status: number }): void => resolve(new Big(error.status));
 
-        mx.login(username, password, onSuccess, onError as any);
+        mx.login2(username, password, Boolean(useAuthToken), onSuccess, onError as any);
     });
     // END USER CODE
 }
